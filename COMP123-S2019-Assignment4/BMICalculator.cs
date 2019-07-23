@@ -17,6 +17,7 @@ namespace COMP123_S2019_Assignment4
         public CalculatorForm()
         {
             InitializeComponent();
+            InputFieldsInnerTableLayoutPanel.Visible = false;
         }
 
         private void CalculatorForm_Load(object sender, EventArgs e)
@@ -26,20 +27,36 @@ namespace COMP123_S2019_Assignment4
 
         private void RadioButtonImperial_CheckedChanged(object sender, EventArgs e)
         {
+            WeightLabel.Text = "My Weight (pounds)";
+            HeightLabel.Text = "My Height (inches)";
             isMetric = false;
+            InputFieldsInnerTableLayoutPanel.Visible = true;
         }
 
         private void RadioButtonMetric_CheckedChanged(object sender, EventArgs e)
         {
+            WeightLabel.Text = "My Weight (kg)";
+            HeightLabel.Text = "My Height (m)";
             isMetric = true;
+            InputFieldsInnerTableLayoutPanel.Visible = true;
         }
 
+        /// <summary>
+        /// This event handler closes any open instances of the keyboard and creates a new keyboard instance with a reference to HeightTextBox. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBoxHeight_Click(object sender, EventArgs e)
         {
             _closeOpenForm("KeyboardForm");
             showKeyboard(HeightTextBox);
         }
 
+        /// <summary>
+        /// This event handler closes any open instances of the keyboard and creates a new keyboard instance with a reference to WeightTextBox. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBoxWeight_Click(object sender, EventArgs e)
         {
             _closeOpenForm("KeyboardForm");
@@ -56,6 +73,10 @@ namespace COMP123_S2019_Assignment4
             keyboardForm.Show();
         }
 
+        /// <summary>
+        /// This method checks for the specified form name and closes it if an instance exists already
+        /// </summary>
+        /// <param name="formName"></param>
         private static void _closeOpenForm(string formName)
         {
             //check for any open keyboard forms
@@ -66,22 +87,33 @@ namespace COMP123_S2019_Assignment4
             }
         }
 
+
+        /// <summary>
+        /// This event handler uses a different BMI formula when the RadioButton checked is Metric or Imperial, and outputs the result to the ResultTextBox.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BMICalculateButton_Click(object sender, EventArgs e)
         {
             double BMI = 0;
+            double height = Convert.ToDouble(Program.calculatorForm.HeightTextBox.Text);
+            double weight = Convert.ToDouble(Program.calculatorForm.WeightTextBox.Text);
 
             if (isMetric)
             {
-                BMI = Convert.ToDouble(Program.calculatorForm.WeightTextBox.Text) / Math.Pow(Convert.ToDouble(Program.calculatorForm.HeightTextBox.Text), 2);
+                BMI = weight / (height * height);
             }
             else if (!isMetric)
             {
-                BMI = (Convert.ToDouble(Program.calculatorForm.WeightTextBox.Text) * 703) / Math.Pow(Convert.ToDouble(Program.calculatorForm.HeightTextBox.Text), 2);
+                BMI = 703 * (weight / (height * height));
             }
 
-            Program.calculatorForm.ResultTextBox.Text = BMI.ToString();
+            Program.calculatorForm.ResultTextBox.Text = Math.Round(BMI,1).ToString();
         }
 
+        /// <summary>
+        /// This method resets the form
+        /// </summary>
         private void resetForm()
         {
             this.HeightTextBox.Text = "0";
