@@ -8,6 +8,8 @@ namespace COMP123_S2019_Assignment4
 {
     static class Program
     {
+        public static CalculatorForm calculatorForm;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,7 +18,10 @@ namespace COMP123_S2019_Assignment4
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CalculatorForm());
+
+            calculatorForm = new CalculatorForm();
+
+            Application.Run(calculatorForm);
         }
     }
 }
