@@ -9,6 +9,7 @@ namespace COMP123_S2019_Assignment4
     static class Program
     {
         public static CalculatorForm calculatorForm;
+        public static KeyboardForm keyboardForm;
 
         /// <summary>
         /// The main entry point for the application.
@@ -20,6 +21,7 @@ namespace COMP123_S2019_Assignment4
             Application.SetCompatibleTextRenderingDefault(false);
 
             calculatorForm = new CalculatorForm();
+            keyboardForm = new KeyboardForm();
 
             Application.Run(calculatorForm);
         }

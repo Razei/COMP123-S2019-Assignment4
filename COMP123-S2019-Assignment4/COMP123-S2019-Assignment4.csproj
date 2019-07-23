@@ -46,16 +46,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calculator.cs">
+    <Compile Include="BMICalculator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Calculator.Designer.cs">
-      <DependentUpon>Calculator.cs</DependentUpon>
+    <Compile Include="BMICalculator.Designer.cs">
+      <DependentUpon>BMICalculator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KeyboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KeyboardForm.Designer.cs">
+      <DependentUpon>KeyboardForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Calculator.resx">
-      <DependentUpon>Calculator.cs</DependentUpon>
+    <EmbeddedResource Include="BMICalculator.resx">
+      <DependentUpon>BMICalculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KeyboardForm.resx">
+      <DependentUpon>KeyboardForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
