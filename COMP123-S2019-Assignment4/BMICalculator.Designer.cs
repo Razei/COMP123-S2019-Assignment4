@@ -101,12 +101,10 @@
             // ImperialRadioButton
             // 
             this.ImperialRadioButton.AutoSize = true;
-            this.ImperialRadioButton.Checked = true;
             this.ImperialRadioButton.Location = new System.Drawing.Point(6, 19);
             this.ImperialRadioButton.Name = "ImperialRadioButton";
             this.ImperialRadioButton.Size = new System.Drawing.Size(128, 35);
             this.ImperialRadioButton.TabIndex = 0;
-            this.ImperialRadioButton.TabStop = true;
             this.ImperialRadioButton.Text = "Imperial";
             this.ImperialRadioButton.UseVisualStyleBackColor = true;
             this.ImperialRadioButton.CheckedChanged += new System.EventHandler(this.RadioButtonImperial_CheckedChanged);
@@ -243,6 +241,7 @@
             this.Name = "CalculatorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BMI Calculator";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CalculatorForm_FormClosing);
             this.Load += new System.EventHandler(this.CalculatorForm_Load);
             this.BMICalculatorTableLayoutPanel.ResumeLayout(false);
             this.BMICalculatorTableLayoutPanel.PerformLayout();

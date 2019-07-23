@@ -36,7 +36,7 @@ namespace COMP123_S2019_Assignment4
         private void RadioButtonMetric_CheckedChanged(object sender, EventArgs e)
         {
             WeightLabel.Text = "My Weight (kg)";
-            HeightLabel.Text = "My Height (m)";
+            HeightLabel.Text = "My Height (cm)";
             isMetric = true;
             InputFieldsInnerTableLayoutPanel.Visible = true;
         }
@@ -101,6 +101,7 @@ namespace COMP123_S2019_Assignment4
 
             if (isMetric)
             {
+                height = height / 100;
                 BMI = weight / (height * height);
             }
             else if (!isMetric)
@@ -124,6 +125,11 @@ namespace COMP123_S2019_Assignment4
         private void ResetButton_Click(object sender, EventArgs e)
         {
             resetForm();
+        }
+
+        private void CalculatorForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

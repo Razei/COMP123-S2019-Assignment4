@@ -22,8 +22,9 @@ namespace COMP123_S2019_Assignment4
 
             calculatorForm = new CalculatorForm();
             keyboardForm = new KeyboardForm();
+            SplashForm splashForm = new SplashForm();
 
-            Application.Run(calculatorForm);
+            Application.Run(splashForm);
         }
     }
 }
